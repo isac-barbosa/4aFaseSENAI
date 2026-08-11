@@ -1,0 +1,168 @@
+.cadastro-page {
+  min-height: 100vh;
+  background: #f4f6f5;
+  padding: 2rem;
+}
+
+.cadastro-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.cadastro-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.busca-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.busca-form input {
+  padding: 0.5rem 0.7rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 320px;
+}
+
+button {
+  cursor: pointer;
+  border-radius: 6px;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+.botao-primario {
+  background-color: #2f6f5e;
+  color: #fff;
+}
+
+.botao-secundario {
+  background-color: #e5e5e5;
+  color: #333;
+}
+
+.botao-perigo {
+  background-color: #d9534f;
+  color: #fff;
+  margin-left: 0.4rem;
+}
+
+.tabela-agendamentos {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tabela-agendamentos th,
+.tabela-agendamentos td {
+  text-align: left;
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9rem;
+}
+
+.tabela-agendamentos th {
+  background: #2f6f5e;
+  color: #fff;
+}
+
+.vazio {
+  text-align: center;
+  color: #888;
+  padding: 1.5rem;
+}
+
+.status {
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  text-transform: capitalize;
+}
+
+.status-agendado {
+  background: #fff4d6;
+  color: #8a6d00;
+}
+
+.status-concluido {
+  background: #d9f3e2;
+  color: #1e7a44;
+}
+
+.status-cancelado {
+  background: #fbe1e1;
+  color: #b3261e;
+}
+
+/* Modal do formulário */
+.modal-fundo {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-form {
+  background: #fff;
+  padding: 1.5rem 1.5rem 1rem;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-form label {
+  font-size: 0.85rem;
+  margin: 0.6rem 0 0.25rem;
+  color: #333;
+}
+
+.modal-form input,
+.modal-form select {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.linha-dupla {
+  display: flex;
+  gap: 1rem;
+}
+
+.linha-dupla > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-acoes {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  margin-top: 1.2rem;
+}
+
+.form-erro {
+  background-color: #fdecea;
+  color: #b3261e;
+  padding: 0.5rem 0.7rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}

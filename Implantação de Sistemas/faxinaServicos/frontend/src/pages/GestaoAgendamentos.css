@@ -1,0 +1,123 @@
+.gestao-page {
+  min-height: 100vh;
+  background: #f4f6f5;
+  padding: 2rem;
+}
+
+.gestao-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.gestao-form-card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  max-width: 480px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.gestao-form-card label {
+  display: block;
+  font-size: 0.85rem;
+  margin: 0.7rem 0 0.3rem;
+  color: #333;
+}
+
+.gestao-form-card select,
+.gestao-form-card input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.opcoes-tipo {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.opcoes-tipo button {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #2f6f5e;
+  background: #fff;
+  color: #2f6f5e;
+  cursor: pointer;
+}
+
+.opcoes-tipo button.ativo {
+  background: #2f6f5e;
+  color: #fff;
+}
+
+.linha-dupla {
+  display: flex;
+  gap: 0.7rem;
+}
+
+.linha-dupla > div {
+  flex: 1;
+}
+
+.gestao-form-card .botao-primario {
+  width: 100%;
+  margin-top: 1.2rem;
+  background-color: #2f6f5e;
+  color: #fff;
+  padding: 0.7rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.botao-secundario {
+  background-color: #e5e5e5;
+  color: #333;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.alerta {
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.alerta-erro {
+  background-color: #fdecea;
+  color: #b3261e;
+}
+
+.alerta-sucesso {
+  background-color: #d9f3e2;
+  color: #1e7a44;
+}
+
+.gestao-lista .tabela-agendamentos {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.gestao-lista th,
+.gestao-lista td {
+  text-align: left;
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9rem;
+}
+
+.gestao-lista th {
+  background: #2f6f5e;
+  color: #fff;
+}
