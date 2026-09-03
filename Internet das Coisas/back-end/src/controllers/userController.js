@@ -41,7 +41,7 @@ export const createUser = async(req, res) =>{
     //=================
     
     if(!validarCPF(cpf)){
-        res.status(400).json({
+        return res.status(400).json({
             message: "CPF inválido",
             success: false
         })
@@ -56,7 +56,7 @@ export const createUser = async(req, res) =>{
         const sql = `INSERT INTO usuario (nome, email, cpf, senha) VALUES(?, ?, ?, ?)`;
 
         const valores = [
-            nomeSanitizado, email, senha, cpfLimpo
+            nomeSanitizado, email, cpfLimpo, senha
         ];
 
         const [result] = await db.execute(sql, valores)
@@ -72,8 +72,8 @@ export const createUser = async(req, res) =>{
             succes: true
         })
 
-    } catch {
-        res.status(500).json({message: "Erro interno"})
+    } catch(error) {
+       return res.status(500).json({message: "Erro interno", erro: error})
     }
 
 }
