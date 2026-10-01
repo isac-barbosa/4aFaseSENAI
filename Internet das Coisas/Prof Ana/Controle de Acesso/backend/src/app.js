@@ -1,8 +1,8 @@
 import express from "express"
 import cors from "cors"
 import dotenv from "dotenv";
-import authRouter from "./routers/auth"
-import materialsRouter from "./routers/materials"
+import authRouter from "./routers/auth.js"
+import materialsRouter from "./routers/materials.js"
 
 dotenv.config();
 
