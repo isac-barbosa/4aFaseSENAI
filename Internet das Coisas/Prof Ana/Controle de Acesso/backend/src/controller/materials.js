@@ -10,8 +10,8 @@ export async function list(req, res) {
 export async function deletar(req, res) {
   const id = Number(req.params.id);
 
-  if (!Number(id) <= 0) {
-    return res.status(400).json({ message: "Id inválido" });
+  if (Number.isNaN(id) || id <= 0) {
+    return res.status(400).json({ message: "ID inválido" });
   }
 
   const [result] = await db.query("DELETE FROM materials WHERE id = ?",[id]);

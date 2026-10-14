@@ -2,80 +2,106 @@
 
 import { useState } from "react";
 import { login, type Session } from "../services/login";
-import Home from "../page/Home";
+import Home from "./Home";
 import Register from "./Register";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
+    const [email, setEmail] = useState("");
+    const [senha, setSenha] = useState("");
 
-  const [session, setSession] = useState<Session | null>(null);
-  const [error, setError] = useState("");
-  const [showRegister, setShowRegister] = useState(false);
-  const [notice, setNotice] = useState("");
+    const [session, setSession] = useState<Session | null>(null);
+    const [error, setError] = useState("");
+    const [showRegister, setShowRegister] = useState(false);
+    const [notice, setNotice] = useState("");
 
-  const handleLogin = async (event: any) => {
-    event.preventDefault();
+    const handleLogin = async (
+        event: any
+    ) => {
+        event.preventDefault();
 
-    try {
-      const result = await login(email, senha);
-      setSession(result)
-      setSenha("")
-     
-    } catch (error) {
-      console.error("Erro ao fazer login: ", error);
-    }
-  };
-  return (
-    <>
-      <div>
-        {/* SEM SESSAO MOSTRAMOS O LOGIN; COM SESSÃO MOSTRAMOS A LSTA, A HOME DO SISTEMA */}
-        {session ? (
-          <Home
-            session={session}
-            onLogout={() => {
-              setSession(null);
-              setEmail("");
-              setSenha("");
-            }}
-          />
-        ) : showRegister ? (
-          <Register
-            onBack={() => setShowRegister(false)}
-            onRegistered={(message) => {
-              (setShowRegister(false), setNotice(message));
-            }}
-          />
-        ) : (
-          <form onSubmit={handleLogin}>
+        setError("");
+
+        try {
+            const response = await login(email, senha);
+
+            if (response) {
+                setSession(response);
+                alert("Login realizado com sucesso!");
+            } else {
+                setError("Erro ao realizar login. Verifique suas credenciais.");
+            }
+
+        } catch (error) {
+            console.error("Erro ao realizar login:", error);
+            setError("Erro ao realizar login. Verifique suas credenciais.");
+        }
+    };
+
+    return (
+        <>
             <div>
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
+                {
+                    session ? (
+                        <Home
+                            session={session}
+                            onLogout={() => {
+                                setSession(null);
+                                setEmail("");
+                                setSenha("");
+                            }}
+                        />
+                    ) : showRegister ? (
+                        <Register
+                            onBack={() => setShowRegister(false)}
+                            onRegistered={(message) => {
+                                setShowRegister(false);
+                                setNotice(message);
+                            }}
+                        />
+                    ) : (
+                        <form onSubmit={handleLogin}>
+                            <div>
+                                <label htmlFor="email">Email:</label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    required
+                                />
+                            </div>
+
+                            <div>
+                                <label htmlFor="senha">Senha:</label>
+                                <input
+                                    type="password"
+                                    id="senha"
+                                    name="senha"
+                                    value={senha}
+                                    onChange={(e) => setSenha(e.target.value)}
+                                    required
+                                />
+                            </div>
+
+                            <button type="submit">Entrar</button>
+
+                            {error && <p>{error}</p>}
+
+                            {notice && <p>{notice}</p>}
+
+                            <button
+                                type="button"
+                                onClick={() => setShowRegister(true)}
+                            >
+                                Cadastrar
+                            </button>
+                        </form>
+                    )
+                }
             </div>
-            <div>
-              <label htmlFor="senha">senha</label>
-              <input
-                type="password"
-                name="senha"
-                id="senha"
-                value={senha}
-                onChange={(e) => setSenha(e.target.value)}
-                required
-              />
-            </div>
-            <button type="submit">Entrar</button>
-          </form>
-        )}
-      </div>
-    </>
-  );
+        </>
+    );
 };
 
 export default Login;

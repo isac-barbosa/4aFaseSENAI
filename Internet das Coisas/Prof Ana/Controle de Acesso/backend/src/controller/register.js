@@ -31,9 +31,14 @@ export async function register(req, res) {
       "INSERT INTO users (name, email, password_hash, role) VALUES(?, ?, ?, ?)",
       [name, email, passwordHash, "user"],
     );
+
+    return res.status(201).json({
+      message: "Usuário cadastrado com sucesso",
+    });
+
   } catch (error) {
     return res.status(400).json({ message: "Credenciais inválidas." });
   }
 
-  return res.status(201).json({ message: "Usuario criado com sucesso." });
+
 }
